@@ -59,9 +59,9 @@ WSGI_APPLICATION = 'lol.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'NAME': 'mk8jm',
+        'USER': 'root',
+        'PASSWORD': 'password',
         'HOST': '127.0.0.1',
     }
 }

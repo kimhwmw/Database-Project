@@ -1,0 +1,1 @@
+drop table lolProject_game_mode, lolProject_masteries, lolProject_minions, lolProject_neutral_monsters, lolProject_runes, lolProject_summoner_spells

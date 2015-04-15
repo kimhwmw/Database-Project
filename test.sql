@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `Game_Mode`
 --
 
-CREATE TABLE IF NOT EXISTS `Game_Mode` (
+CREATE TABLE IF NOT EXISTS `lolProject_game_mode` (
   `name` varchar(16) NOT NULL,
   `neutral_ground` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `Game_Mode` (
 -- Dumping data for table `Game_Mode`
 --
 
-INSERT INTO `Game_Mode` (`name`, `neutral_ground`) VALUES
+INSERT INTO `lolProject_game_mode` (`name`, `neutral_ground`) VALUES
 ('Summoner''s Rift', 'The Jungle; The Dragon; Baron Nashor'),
 ('The Twisted Tree', 'The Jungle; Altars; Vilemaw'),
 ('Howling Abyss', 'No Healing or Shopping; Health Relics; A Single In'),
@@ -47,7 +47,7 @@ INSERT INTO `Game_Mode` (`name`, `neutral_ground`) VALUES
 -- Table structure for table `Masteries`
 --
 
-CREATE TABLE IF NOT EXISTS `Masteries` (
+CREATE TABLE IF NOT EXISTS `lolProject_masteries` (
   `name` varchar(30) NOT NULL,
   `m_type` varchar(10) NOT NULL,
   `effect` varchar(100) NOT NULL
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `Masteries` (
 -- Dumping data for table `Masteries`
 --
 
-INSERT INTO `Masteries` (`name`, `m_type`, `effect`) VALUES
+INSERT INTO `lolProject_masteries` (`name`, `m_type`, `effect`) VALUES
 ('Double-Edged Sword', 'Offense', 'Deal an additional 2% damage and receive an additional 1% damage'),
 ('Fury', 'Offense', '1.25% Attack Speed'),
 ('Sorcery', 'Offense', '1.25% Cooldown Reduction'),
@@ -87,7 +87,7 @@ INSERT INTO `Masteries` (`name`, `m_type`, `effect`) VALUES
 -- Table structure for table `Minions`
 --
 
-CREATE TABLE IF NOT EXISTS `Minions` (
+CREATE TABLE IF NOT EXISTS `lolProject_minions` (
   `minion_type` varchar(12) NOT NULL,
   `health` int(4) NOT NULL,
   `attack_dmg` int(3) NOT NULL,
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `Minions` (
 -- Dumping data for table `Minions`
 --
 
-INSERT INTO `Minions` (`type`, `health`, `attack_dmg`, `armor`, `magic_resist`, `attack_speed`, `gold`, `exp`) VALUES
+INSERT INTO `lolProject_minions` (`minion_type`, `health`, `attack_dmg`, `armor`, `magic_resist`, `attack_speed`, `gold`, `exp`) VALUES
 ('Melee', 445, 12, 0, 0, 1, 20, 59),
 ('Caster', 280, 25, 0, 0, 1, 15, 29),
 ('Cannon', 700, 40, 15, 0, 1, 40, 92),
@@ -114,7 +114,7 @@ INSERT INTO `Minions` (`type`, `health`, `attack_dmg`, `armor`, `magic_resist`, 
 -- Table structure for table `Neutral_Monsters`
 --
 
-CREATE TABLE IF NOT EXISTS `Neutral_Monsters` (
+CREATE TABLE IF NOT EXISTS `lolProject_neutral_monsters` (
   `camp` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `rewards` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `health` int(4) NOT NULL,
@@ -128,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `Neutral_Monsters` (
 -- Dumping data for table `Neutral_Monsters`
 --
 
-INSERT INTO `Neutral_Monsters` (`camp`, `rewards`, `health`, `damage`, `resistance`, `initial_spawn`, `respawn_time`) VALUES
+INSERT INTO `lolProject_neutral_monsters` (`camp`, `rewards`, `health`, `damage`, `resistance`, `initial_spawn`, `respawn_time`) VALUES
 ('Crimson Raptor', '+41 Gold; +210EXP', 1200, 55, 'Ar:15; MR:0', '00:01:55', '00:01:40'),
 ('Raptor', '+9 Gold; +30EXP', 250, 20, 'Ar:5; MR:0', '00:01:55', '00:01:40'),
 ('Greater Murk Wolf', '+42 Gold; +213EXP', 1320, 42, 'Ar:9; MR:0', '00:01:55', '00:01:40'),
@@ -150,9 +150,9 @@ INSERT INTO `Neutral_Monsters` (`camp`, `rewards`, `health`, `damage`, `resistan
 -- Table structure for table `Runes`
 --
 
-CREATE TABLE IF NOT EXISTS `Runes` (
+CREATE TABLE IF NOT EXISTS `lolProject_runes` (
   `name` varchar(32) NOT NULL,
-  `type` varchar(20) NOT NULL,
+  `rune_type` varchar(20) NOT NULL,
   `effects` decimal(10,0) NOT NULL,
   `cost` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -161,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `Runes` (
 -- Dumping data for table `Runes`
 --
 
-INSERT INTO `Runes` (`name`, `type`, `effects`, `cost`) VALUES
+INSERT INTO `lolProject_runes` (`name`, `rune_type`, `effects`, `cost`) VALUES
 ('Ability Power', 'Mark', 1, 410),
 ('Ability Power', 'Seal', 1, 410),
 ('Ability Power', 'Glyph', 1, 410),
@@ -223,11 +223,11 @@ INSERT INTO `Runes` (`name`, `type`, `effects`, `cost`) VALUES
 -- Table structure for table `Summoner_spells`
 --
 
-CREATE TABLE IF NOT EXISTS `Summoner_spells` (
+CREATE TABLE IF NOT EXISTS `lolProject_summoner_spells` (
   `spell` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `level` int(11) NOT NULL,
   `cooldown` int(11) NOT NULL,
-  `range` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `summoner_range` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -235,7 +235,7 @@ CREATE TABLE IF NOT EXISTS `Summoner_spells` (
 -- Dumping data for table `Summoner_spells`
 --
 
-INSERT INTO `Summoner_spells` (`spell`, `level`, `cooldown`, `range`, `description`) VALUES
+INSERT INTO `lolProject_summoner_spells` (`spell`, `level`, `cooldown`, `summoner_range`, `description`) VALUES
 ('Barrier', 4, 210, 'Self', 'Shields your champion'),
 ('Clairvoyance', 8, 60, 'Global', 'Reveals an area of the map for 5 seconds'),
 ('Clarity', 1, 180, 'Self', 'Restores 40% maximum mana to you and your nearby allies'),
